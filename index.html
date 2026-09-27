@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berpikir Komputasional - MADZxSIGMA X MADZ PROJECT</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at top left,#182848,#07111f 45%,#03070d);
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    padding:22px 7%;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    background:rgba(5,12,24,.85);
+    backdrop-filter:blur(15px);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.brand{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.brand span{
+    color:#55d6ff;
+}
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:55px 25px 35px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(32px,6vw,64px);
+    margin-bottom:24px;
+    background:linear-gradient(90deg,#fff,#55d6ff,#9d7cff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.definition{
+    max-width:950px;
+    margin:0 auto 25px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.11);
+}
+
+.definition h2{
+    color:#55d6ff;
+    margin-bottom:12px;
+    font-size:26px;
+}
+
+.definition p{
+    color:#c9d6e8;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.concepts{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    text-align:left;
+}
+
+.concept{
+    display:flex;
+    gap:15px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    transition:.25s;
+}
+
+.concept:hover{
+    transform:translateY(-4px);
+    border-color:rgba(85,214,255,.4);
+}
+
+.concept-number{
+    min-width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#55d6ff;
+    color:#06101d;
+    font-weight:bold;
+    font-size:19px;
+}
+
+.concept h3{
+    color:#fff;
+    margin-bottom:7px;
+}
+
+.concept p{
+    color:#aebed2;
+    line-height:1.65;
+}
+
+.tools{
+    max-width:1200px;
+    margin:10px auto 35px;
+    padding:0 25px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:250px;
+    padding:15px 18px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:14px;
+    outline:none;
+    background:rgba(255,255,255,.07);
+    color:white;
+    font-size:16px;
+}
+
+.search::placeholder{
+    color:#91a1b7;
+}
+
+.counter{
+    padding:15px 20px;
+    border-radius:14px;
+    background:rgba(85,214,255,.1);
+    border:1px solid rgba(85,214,255,.25);
+    color:#55d6ff;
+    font-weight:bold;
+}
+
+.grid{
+    max-width:1200px;
+    margin:auto;
+    padding:0 25px 60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.09),
+        rgba(255,255,255,.035)
+    );
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(85,214,255,.4);
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.number{
+    color:#55d6ff;
+    font-weight:bold;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.card h2{
+    font-size:21px;
+    margin-bottom:18px;
+}
+
+.item{
+    margin:13px 0;
+    padding:14px;
+    border-radius:12px;
+    background:rgba(0,0,0,.18);
+    line-height:1.7;
+    color:#d5dfec;
+}
+
+.item b{
+    display:block;
+    color:#fff;
+    margin-bottom:8px;
+}
+
+.dekom b{
+    color:#55d6ff;
+}
+
+.pola b{
+    color:#8cff9b;
+}
+
+.abstraksi b{
+    color:#c18cff;
+}
+
+.algoritma b{
+    color:#ffca67;
+}
+
+.pola-step,
+.algoritma-step{
+    padding:3px 0;
+}
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#8291a5;
+}
+
+footer strong{
+    color:#55d6ff;
+}
+
+@media(max-width:700px){
+
+    .concepts{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+        padding:0 14px 45px;
+    }
+
+    .tools{
+        padding:0 14px;
+    }
+
+    .hero{
+        padding:40px 16px 30px;
+    }
+
+    .card{
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">
+        <span>MADZxSIGMA</span> X MADZ PROJECT
+    </div>
+</header>
+
+<section class="hero">
+
+    <h1>🧠 BERPIKIR KOMPUTASIONAL</h1>
+
+    <div class="definition">
+
+        <h2>Pengertian Berpikir Komputasional</h2>
+
+        <p>
+            Berpikir komputasional adalah cara berpikir secara sistematis
+            dan logis untuk menyelesaikan suatu masalah dengan cara
+            memecah masalah menjadi bagian kecil, menemukan pola,
+            mengambil informasi penting, dan membuat langkah penyelesaian
+            secara terurut.
+        </p>
+
+    </div>
+
+    <div class="concepts">
+
+        <div class="concept">
+
+            <div class="concept-number">1</div>
+
+            <div>
+                <h3>Dekomposisi adalah</h3>
+
+                <p>
+                    proses memecah masalah besar atau rumit menjadi
+                    beberapa bagian kecil agar lebih mudah dipahami
+                    dan diselesaikan.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="concept">
+
+            <div class="concept-number">2</div>
+
+            <div>
+                <h3>Pengenalan Pola adalah</h3>
+
+                <p>
+                    proses mencari kesamaan, hubungan, atau pola
+                    yang muncul dari suatu masalah sehingga
+                    penyelesaiannya menjadi lebih mudah.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="concept">
+
+            <div class="concept-number">3</div>
+
+            <div>
+                <h3>Abstraksi adalah</h3>
+
+                <p>
+                    proses mengambil informasi yang paling penting
+                    dari suatu masalah dan mengabaikan informasi
+                    yang tidak diperlukan agar masalah menjadi lebih sederhana.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="concept">
+
+            <div class="concept-number">4</div>
+
+            <div>
+                <h3>Algoritma adalah</h3>
+
+                <p>
+                    urutan langkah-langkah yang sistematis dan logis
+                    untuk menyelesaikan suatu masalah sampai mendapatkan
+                    hasil yang diinginkan.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="tools">
+
+    <input
+        id="search"
+        class="search"
+        type="text"
+        placeholder="🔎 Cari contoh... misalnya mie, sekolah, website"
+    >
+
+    <div class="counter" id="counter">
+        100 Contoh
+    </div>
+
+</div>
+
+
+<main class="grid" id="cards"></main>
+
+
+<footer>
+
+    <strong>MADZxSIGMA X MADZ PROJECT</strong>
+
+    <br><br>
+
+    BERPIKIR KOMPUTASIONAL • 100 CONTOH
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   100 CONTOH BERPIKIR KOMPUTASIONAL
+========================================================= */
+
+const data = [
+
+[
+"Membuat Mie Goreng",
+"Menyiapkan mie, bumbu, telur, minyak, sayuran, alat masak, dan piring.",
+"Rebus mie sampai lunak|Tiriskan mie|Tumis bumbu|Masukkan telur dan sayuran|Masukkan mie|Aduk sampai rata",
+"Fokus pada bahan utama, urutan memasak, waktu, suhu, dan kematangan. Warna piring dan dekorasi meja tidak diperlukan.",
+"Siapkan bahan|Rebus mie|Tiriskan mie|Tumis bumbu|Masukkan telur|Masukkan mie|Aduk|Sajikan"
+],
+
+[
+"Membuat Teh Manis",
+"Menyiapkan gelas, teh, gula, air panas, dan sendok.",
+"Panaskan air|Masukkan teh|Tuangkan air panas|Diamkan beberapa menit|Tambahkan gula|Aduk",
+"Fokus pada teh, air, gula, jumlah, dan waktu penyeduhan. Bentuk gelas tidak memengaruhi hasil.",
+"Siapkan gelas|Panaskan air|Masukkan teh|Tuangkan air|Tambahkan gula|Aduk|Sajikan"
+],
+
+[
+"Membuat Kopi",
+"Menyiapkan kopi, air panas, gula, gelas, dan sendok.",
+"Masukkan kopi|Tambahkan gula|Tuangkan air panas|Aduk sampai tercampur",
+"Fokus pada kopi, air, gula, dan proses pencampuran. Warna gelas tidak penting.",
+"Siapkan gelas|Masukkan kopi|Tambahkan gula|Tuangkan air|Aduk|Sajikan"
+],
+
+[
+"Memasak Nasi",
+"Menyiapkan beras, air, rice cooker, dan wadah.",
+"Cuci beras|Masukkan beras|Tambahkan air|Nyalakan rice cooker|Tunggu matang",
+"Fokus pada jumlah beras, jumlah air, panas, dan waktu memasak.",
+"Cuci beras|Masukkan beras|Tambahkan air|Nyalakan|Tunggu matang"
+],
+
+[
+"Membuat Telur Goreng",
+"Menyiapkan telur, minyak, wajan, kompor, spatula, dan piring.",
+"Panaskan wajan|Tambahkan minyak|Pecahkan telur|Masak|Balik jika perlu|Angkat",
+"Fokus pada telur, panas, minyak, dan waktu. Warna spatula tidak diperlukan.",
+"Panaskan wajan|Tambahkan minyak|Pecahkan telur|Masak|Balik|Angkat"
+],
+
+[
+"Membuat Sandwich",
+"Menyiapkan roti, sayuran, telur atau daging, saus, dan piring.",
+"Siapkan roti|Tambahkan saus|Letakkan isian|Tambahkan sayuran|Tutup dengan roti",
+"Fokus pada bahan utama dan urutan penyusunan. Bentuk piring tidak diperlukan.",
+"Siapkan roti|Oleskan saus|Tambahkan isian|Tambahkan sayuran|Tutup"
+],
+
+[
+"Membuat Jus",
+"Menyiapkan buah, air, gula, blender, pisau, dan gelas.",
+"Cuci buah|Potong buah|Masukkan ke blender|Tambahkan air|Blender|Tuangkan",
+"Fokus pada buah, cairan, blender, dan proses penghancuran.",
+"Cuci buah|Potong|Masukkan blender|Tambahkan air|Blender|Sajikan"
+],
+
+[
+"Membuat Es Teh",
+"Menyiapkan teh, air panas, gula, es batu, gelas, dan sendok.",
+"Seduh teh|Tambahkan gula|Aduk|Tambahkan es|Sajikan",
+"Fokus pada teh, gula, air, dan proses pendinginan.",
+"Seduh teh|Tambah gula|Aduk|Tambah es|Sajikan"
+],
+
+[
+"Mencuci Piring",
+"Mengumpulkan piring kotor, sabun, spons, air, dan tempat pengeringan.",
+"Kumpulkan piring|Basahi|Tambahkan sabun|Gosok|Bilas|Keringkan",
+"Fokus pada menghilangkan kotoran menggunakan sabun dan air.",
+"Kumpulkan|Basahi|Sabuni|Gosok|Bilas|Keringkan"
+],
+
+[
+"Menyapu Rumah",
+"Menyiapkan sapu, pengki, tempat sampah, dan area yang dibersihkan.",
+"Tentukan area|Sapu kotoran|Kumpulkan pada satu titik|Gunakan pengki|Buang sampah",
+"Fokus pada lokasi kotor, arah sapuan, dan tempat pembuangan.",
+"Tentukan area|Sapu|Kumpulkan|Ambil|Buang"
+],
+
+[
+"Mengepel Lantai",
+"Menyiapkan ember, air, cairan pembersih, pel, dan lantai.",
+"Siapkan air|Campur pembersih|Celupkan pel|Peras|Pel lantai|Tunggu kering",
+"Fokus pada air, pembersih, lantai, dan gerakan pel.",
+"Isi ember|Tambah pembersih|Basahi pel|Peras|Pel"
+],
+
+[
+"Mencuci Baju",
+"Memisahkan pakaian, menyiapkan deterjen, air, mesin cuci, dan tempat menjemur.",
+"Pisahkan pakaian|Masukkan pakaian|Tambahkan deterjen|Cuci|Bilas|Keringkan",
+"Fokus pada pakaian, deterjen, pencucian, pembilasan, dan pengeringan.",
+"Pisahkan|Masukkan|Tambah deterjen|Cuci|Bilas|Keringkan"
+],
+
+[
+"Menggosok Gigi",
+"Menyiapkan sikat gigi, pasta gigi, air, dan wastafel.",
+"Basahi sikat|Gunakan pasta|Sikat bagian luar|Sikat bagian dalam|Sikat permukaan kunyah|Berkumur",
+"Fokus pada seluruh permukaan gigi yang perlu dibersihkan.",
+"Ambil sikat|Pakai pasta|Sikat gigi|Berkumur|Bersihkan sikat"
+],
+
+[
+"Mandi",
+"Menyiapkan air, sabun, sampo, handuk, dan pakaian bersih.",
+"Basahi tubuh|Gunakan sabun|Bersihkan tubuh|Gunakan sampo|Bilas|Keringkan",
+"Fokus pada membersihkan tubuh dan membilas sisa sabun.",
+"Basahi|Sabuni|Bersihkan|Sampo|Bilas|Keringkan"
+],
+
+[
+"Berangkat ke Sekolah",
+"Menyiapkan pakaian, tas, buku, alat tulis, bekal, dan rute.",
+"Bangun|Mandi|Berpakaian|Siapkan tas|Periksa barang|Berangkat",
+"Fokus pada waktu, tujuan, rute, dan perlengkapan sekolah.",
+"Bangun|Mandi|Berpakaian|Siapkan tas|Periksa|Berangkat"
+],
+
+[
+"Mengerjakan PR",
+"Menentukan tugas, buku, alat tulis, dan soal.",
+"Baca tugas|Kelompokkan soal|Kerjakan soal mudah|Kerjakan soal sulit|Periksa jawaban",
+"Fokus pada pertanyaan, informasi penting, konsep, dan jawaban.",
+"Baca|Kerjakan|Periksa|Perbaiki|Kumpulkan"
+],
+
+[
+"Belajar untuk Ujian",
+"Menentukan materi, catatan, buku, soal latihan, dan waktu belajar.",
+"Catat materi|Kelompokkan topik|Pelajari|Kerjakan latihan|Periksa kesalahan|Ulangi",
+"Fokus pada materi ujian, pemahaman, dan waktu belajar.",
+"Tentukan materi|Belajar|Latihan|Evaluasi|Ulangi"
+],
+
+[
+"Membuat Presentasi",
+"Menentukan topik, informasi, slide, gambar, dan penjelasan.",
+"Tentukan topik|Cari informasi|Buat struktur|Buat slide|Tambahkan gambar|Latihan",
+"Fokus pada inti materi dan urutan penyampaian.",
+"Tentukan topik|Cari informasi|Susun materi|Buat slide|Latihan"
+],
+
+[
+"Mencari Informasi di Internet",
+"Menentukan pertanyaan, kata kunci, sumber, dan hasil.",
+"Tentukan pertanyaan|Buat kata kunci|Cari|Buka beberapa sumber|Bandingkan|Pilih yang relevan",
+"Fokus pada pertanyaan dan informasi yang benar-benar menjawabnya.",
+"Tentukan pertanyaan|Cari|Bandingkan sumber|Ambil informasi"
+],
+
+[
+"Membuat Akun",
+"Menyiapkan username, email atau nomor, password, dan verifikasi.",
+"Buka website|Pilih daftar|Masukkan data|Buat password|Verifikasi|Selesai",
+"Fokus pada identitas akun, password, dan verifikasi.",
+"Buka daftar|Isi data|Buat password|Verifikasi|Selesai"
+],
+
+[
+"Login Website",
+"Menyiapkan username atau email dan password.",
+"Buka login|Masukkan username|Masukkan password|Klik login|Sistem memeriksa|Masuk",
+"Fokus pada identitas akun dan autentikasi.",
+"Buka login|Isi username|Isi password|Klik login|Validasi"
+],
+
+[
+"Membuat Password Aman",
+"Menentukan password dan menggabungkan berbagai karakter.",
+"Tentukan panjang|Gunakan huruf|Tambahkan angka|Tambahkan simbol|Hindari data mudah ditebak",
+"Fokus pada panjang, kerumitan, dan keamanan password.",
+"Tentukan password|Gabungkan karakter|Hindari informasi pribadi|Simpan aman"
+],
+
+[
+"Mengirim Email",
+"Menyiapkan penerima, subjek, isi pesan, dan lampiran.",
+"Buka email|Klik tulis|Masukkan penerima|Isi subjek|Tulis pesan|Lampirkan file|Kirim",
+"Fokus pada penerima, isi pesan, dan lampiran.",
+"Buka email|Tulis|Isi penerima|Isi subjek|Lampirkan|Kirim"
+],
+
+[
+"Mengirim File",
+"Menentukan file, fitur upload, lokasi file, dan tujuan pengiriman.",
+"Buka upload|Pilih file|Cari file|Pilih|Tunggu upload|Periksa",
+"Fokus pada file, ukuran, format, dan tujuan upload.",
+"Buka upload|Pilih file|Upload|Tunggu|Periksa"
+],
+
+[
+"Membuat Folder",
+"Menentukan lokasi penyimpanan dan nama folder.",
+"Buka lokasi|Klik kanan|Pilih folder baru|Beri nama|Simpan",
+"Fokus pada lokasi dan nama folder.",
+"Buka lokasi|New Folder|Ketik nama|Simpan"
+],
+
+[
+"Menghapus File",
+"Menentukan file yang akan dihapus dan melakukan konfirmasi.",
+"Cari file|Pilih file|Klik hapus|Periksa konfirmasi|Konfirmasi",
+"Fokus pada identitas file agar data lain tidak ikut terhapus.",
+"Pilih file|Klik hapus|Konfirmasi|Periksa"
+],
+
+[
+"Mengganti Nama File",
+"Menentukan file dan nama baru.",
+"Pilih file|Rename|Masukkan nama baru|Simpan",
+"Fokus pada file target dan nama barunya. Isi file tetap dipertahankan.",
+"Pilih file|Rename|Ketik nama|Simpan"
+],
+
+[
+"Menginstal Aplikasi",
+"Mencari aplikasi, mengunduh installer, dan memasangnya.",
+"Cari aplikasi|Periksa sumber|Download|Jalankan installer|Ikuti instruksi|Buka",
+"Fokus pada aplikasi, sumber, izin, dan pemasangan.",
+"Cari|Download|Install|Buka"
+],
+
+[
+"Membuat Website",
+"Menentukan tujuan, HTML, CSS, JavaScript, pengujian, dan publikasi.",
+"Tentukan tujuan|Buat HTML|Buat CSS|Buat JavaScript|Uji|Perbaiki|Publikasikan",
+"Fokus pada struktur, tampilan, fungsi, dan kebutuhan pengguna.",
+"Tentukan tujuan|Buat HTML|Buat CSS|Buat JS|Tes|Publikasikan"
+],
+
+[
+"Membuat Tombol Website",
+"Menentukan fungsi tombol, teks, desain, dan event.",
+"Tentukan fungsi|Buat tombol|Beri teks|Beri CSS|Tambahkan event|Uji",
+"Fokus pada label, fungsi, dan respons tombol.",
+"Buat tombol|Tentukan fungsi|Pasang event|Tes"
+],
+
+[
+"Membuat Form Login",
+"Membuat input username, password, tombol login, dan validasi.",
+"Buat username|Buat password|Buat tombol|Ambil data|Validasi|Tampilkan hasil",
+"Fokus pada data yang dibutuhkan dan validasi.",
+"Buat form|Ambil input|Validasi|Tampilkan"
+],
+
+[
+"Membuat Kalkulator",
+"Menentukan angka, operator, tombol, proses hitung, dan hasil.",
+"Masukkan angka pertama|Pilih operator|Masukkan angka kedua|Hitung|Tampilkan hasil",
+"Fokus pada angka dan operator. Tampilan kalkulator tidak memengaruhi perhitungan.",
+"Masukkan angka|Pilih operator|Masukkan angka kedua|Hitung|Tampilkan"
+],
+
+[
+"Menghitung Nilai Rata-rata",
+"Mengumpulkan semua nilai dan mengetahui jumlah data.",
+"Kumpulkan nilai|Jumlahkan nilai|Hitung banyak data|Bagi total dengan jumlah data",
+"Fokus hanya pada nilai dan jumlah data.",
+"Kumpulkan|Jumlahkan|Hitung jumlah data|Bagi"
+],
+
+[
+"Menentukan Nilai Tertinggi",
+"Mengumpulkan semua nilai dan membandingkan nilainya.",
+"Ambil nilai pertama|Jadikan terbesar sementara|Bandingkan nilai berikutnya|Ganti jika lebih besar|Ulangi",
+"Fokus pada angka nilai dan perbandingan.",
+"Ambil nilai|Bandingkan|Perbarui maksimum|Ulangi"
+],
+
+[
+"Menentukan Nilai Terendah",
+"Mengumpulkan semua nilai dan mencari yang paling kecil.",
+"Ambil nilai pertama|Jadikan terkecil sementara|Bandingkan|Ganti jika lebih kecil|Ulangi",
+"Fokus pada angka nilai dan perbandingan.",
+"Ambil nilai|Bandingkan|Perbarui minimum|Ulangi"
+],
+
+[
+"Mengurutkan Nilai",
+"Mengumpulkan nilai dan menentukan urutan naik atau turun.",
+"Ambil data|Bandingkan dua nilai|Tukar jika salah|Ulangi|Selesai ketika terurut",
+"Fokus pada nilai dan aturan urutan.",
+"Ambil data|Bandingkan|Tukar|Ulangi"
+],
+
+[
+"Mencari Nama di Daftar",
+"Menentukan nama yang dicari dan daftar nama.",
+"Masukkan nama|Periksa data pertama|Bandingkan|Jika sama selesai|Jika tidak lanjut",
+"Fokus pada kata yang dicari dan daftar data.",
+"Masukkan nama|Periksa|Bandingkan|Tampilkan hasil"
+],
+
+[
+"Membuat Jadwal",
+"Menentukan kegiatan, waktu, durasi, dan prioritas.",
+"Daftar kegiatan|Tentukan prioritas|Tentukan waktu|Atur durasi|Masukkan jadwal",
+"Fokus pada kegiatan, waktu, durasi, dan prioritas.",
+"Catat kegiatan|Prioritaskan|Atur waktu|Simpan"
+],
+
+[
+"Bangun Pagi",
+"Menentukan waktu bangun dan alarm.",
+"Tentukan waktu|Pasang alarm|Tidur|Alarm berbunyi|Bangun",
+"Fokus pada waktu dan tindakan setelah alarm.",
+"Tentukan waktu|Pasang alarm|Tidur|Bangun"
+],
+
+[
+"Merapikan Kamar",
+"Mengelompokkan pakaian, buku, sampah, dan barang lain.",
+"Kumpulkan barang|Kelompokkan|Buang sampah|Lipat pakaian|Susun buku|Simpan",
+"Fokus pada jenis barang dan tempat penyimpanannya.",
+"Kumpulkan|Kelompokkan|Rapikan|Simpan"
+],
+
+[
+"Menyiapkan Tas Sekolah",
+"Menentukan jadwal dan perlengkapan yang dibutuhkan.",
+"Lihat jadwal|Catat pelajaran|Ambil buku|Masukkan alat tulis|Periksa",
+"Fokus pada jadwal dan perlengkapan yang dibutuhkan.",
+"Lihat jadwal|Ambil buku|Masukkan alat tulis|Periksa"
+],
+
+[
+"Membeli Barang Online",
+"Memilih produk, harga, jumlah, alamat, dan pembayaran.",
+"Cari produk|Periksa detail|Pilih jumlah|Masukkan keranjang|Isi alamat|Pilih pembayaran|Bayar",
+"Fokus pada produk, harga, jumlah, alamat, dan pembayaran.",
+"Cari|Periksa|Keranjang|Alamat|Bayar"
+],
+
+[
+"Membuat Daftar Belanja",
+"Menentukan kebutuhan dan barang yang habis.",
+"Periksa persediaan|Catat barang habis|Kelompokkan|Tentukan jumlah|Buat daftar",
+"Fokus pada barang yang benar-benar diperlukan.",
+"Periksa stok|Catat|Tentukan jumlah|Buat daftar"
+],
+
+[
+"Memasak Nasi Goreng",
+"Menyiapkan nasi, bumbu, minyak, telur, sayuran, dan alat.",
+"Panaskan minyak|Tumis bumbu|Masukkan telur|Masukkan sayuran|Masukkan nasi|Aduk|Sajikan",
+"Fokus pada bahan, urutan memasak, panas, dan rasa.",
+"Siapkan bahan|Tumis|Masukkan telur|Masukkan nasi|Bumbui|Sajikan"
+],
+
+[
+"Membuat Sup",
+"Menyiapkan kaldu, sayuran, bumbu, dan bahan utama.",
+"Didihkan kaldu|Masukkan bahan keras|Masukkan sayuran|Tambah bumbu|Masak sampai matang",
+"Fokus pada jenis bahan, waktu, dan urutan memasukkan bahan.",
+"Didihkan|Masukkan bahan|Bumbui|Masak|Sajikan"
+],
+
+[
+"Membuat Pizza",
+"Menyiapkan adonan, saus, keju, topping, oven, dan loyang.",
+"Buat adonan|Pipihkan|Tambahkan saus|Tambahkan t
